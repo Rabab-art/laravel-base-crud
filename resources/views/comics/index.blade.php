@@ -24,7 +24,7 @@
         </div>
     </div>
     @else
-    <h2>Non è diponibile...</h2>
+    <h2 class="text-center mp-5">Non è diponibile...</h2>
     @endif
 </div>
 @endsection
