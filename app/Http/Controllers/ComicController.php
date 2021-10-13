@@ -13,7 +13,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics=Comic::all();
+        $comics=Comic::orderBy('title')->paginate(5);
     return view ('comics.index',compact('comics'));
     }
 
@@ -22,9 +22,12 @@ class ComicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $comic =Comic::findOrFail($id);
+        dd($comic);
+        return view('comics.show',compact('comic'));
+
     }
 
     /**

@@ -27,17 +27,20 @@
                 <ul>
                     <li scope="row">{{$comic->title}}</li>
                     {{-- <li scope="row">{{$comic->description}}</li> da inserire della show --}}
-                    <li scope="row">{{$comic->price}}</li>
+                    {{-- <li scope="row">{{$comic->price}}</li>da inserire nello show --}}
                     <li scope="row">{{$comic->series}}</li>
-                    <li scope="row">{{$comic->type}}</li>
+                    {{-- <li scope="row">{{$comic->type}}</li> da inserire nello show --}}
+                    <li><a class="btn btn-primary" href="{{route ('comics.show' ,$comics->id)}}">MORE</a></li>   
                 </ul>
                 @empty
-
+              
                 @endforelse
             </div>
            
         </div>
     </div>
+   
     <h2 class=" mp-5 text-center">Non è diponibile...</h2>
+   {{-- {{$comics ->links()}} --}}
     @endsection
 </section>
