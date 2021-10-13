@@ -19,13 +19,16 @@
     <main class="container-fluid ">
         <section class="jumbotron">
 
-        </section >
-        <section class="cards-section" id="@yield('section_id')">
-            <div class="card main_card my-5 p-5">
-                @yield('content')
-            </div>
+        </section>
+
+        <section class="" id="@yield('section_id')">
+
+            @yield('content')
+
         </section>
     </main>
+
+
 
 
     @yield('scripts')

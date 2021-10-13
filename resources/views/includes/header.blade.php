@@ -13,7 +13,7 @@
     </button>
     <div class=" navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav">
-        <li class="nav-item"> <a class="nav-link @if (request()->routeIs('comics.index')) active @endif" href="#">Comics</a>
+        <li class="nav-item"> <a class="nav-link @if (request()->routeIs('comics.index')) active @endif" href="{{route('comics.index')}}">Comics</a>
         </li>
         <li class="nav-item"> <a class="nav-link" href="#">Characters</a></li>
         <li class="nav-item"> <a class="nav-link" href="#">Movies</a></li>
