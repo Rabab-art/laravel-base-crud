@@ -2,14 +2,11 @@
 
 @section('title', 'cover')
 
-@section('section_is', 'comics')
+@section('section_id', 'comics')
 
 @section( 'content')
 <h1>DC Comics Book </h1>
 <div class="card" style="width: 18rem;">
-   
-    @if (!empty ($comics))
-    <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
         <ul>
             <li scope="row">Title</li>
@@ -19,12 +16,22 @@
             <li scope="row">Type</li>
         </ul>
         <div>
-            @foreach($comics as $comic)
-            @endforeach
+        @forelse($comics as $comic)
+        @if($comic->thumb)
+        <img src="{{$comic->thumb}}" alt="" class="img-fluid me-2">
+        @endif
+   
+             <ul>
+                 <li scope="row">{{$comic->title}}</li>
+                 <li scope="row">{{$comic->description}}</li>
+                 <li scope="row">{{$comic->price}}</li>
+                 <li scope="row">{{$comic->series}}</li>
+                 <li scope="row">{{$comic->type}}</li>
+             </ul>
+        @empty
+        <h2 class="text-center mp-5">Non è diponibile...</h2>
+        @endforelse
         </div>
     </div>
-    @else
-    <h2 class="text-center mp-5">Non è diponibile...</h2>
-    @endif
 </div>
 @endsection
