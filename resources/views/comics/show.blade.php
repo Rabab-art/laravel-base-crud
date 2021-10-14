@@ -1,4 +1,4 @@
-@extends('layouts.main');
+@extends('layouts.main')
 
 @section('series', $comic->series)
 
@@ -24,5 +24,7 @@
     </div>
 
 </div>
-
+<div class="card-footer d-flex justify-contente-end">
+    <a href="{{route ('comics.index')}}" class="btn btn-primary">INDIETRO</a>
+</div>
 @endsection

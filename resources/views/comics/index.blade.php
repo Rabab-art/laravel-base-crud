@@ -7,8 +7,15 @@
 @section( 'content')
 
 <section class="">
-    <h1 class="mt-4 mp-5 text-center">DC Comics Book </h1>
-    
+    <div class="card-title d-flex justify-content-between align-items-center m-4">
+    <h1 class=" text-center">DC Comics Book </h1>
+    <form method="GET">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Cerca fumetto..." name="search"/>
+            <button class="btn btn-secondary" type="submit">Cerca</button>
+        </div>
+    </form>
+</div>
             <div class="card m-3 " style="width: 18rem;">
                 @forelse($comics as $comic)
                 @if($comic->thumb)
