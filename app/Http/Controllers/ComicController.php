@@ -19,14 +19,13 @@ class ComicController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function create($id)
     {
-        $comic =Comic::findOrFail($id);
-        dd($comic);
-        return view('comics.show',compact('comic'));
+        
+       
 
     }
 
@@ -49,7 +48,10 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-        //
+        $comic =Comic::findOrFail($id);
+       
+
+        return view('comics.show', compact('comic'));
     }
 
     /**

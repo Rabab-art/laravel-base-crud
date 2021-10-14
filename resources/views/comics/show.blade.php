@@ -1,13 +1,13 @@
 @extends('layouts.main');
 
-@section('title', $comic->title)
+@section('series', $comic->series)
 
 @section('section-id', 'comics.show')
 
 @section( 'content')
 
 <div class="card-title">
-    <h6 class="text-center">{{$comic->series}}</h6>
+    <h4 class="text-center m-3">{{$comic->title}}</h4>
     <hr>
 </div>
 <div class="card-body row">
@@ -18,7 +18,7 @@
     </div>
     <div class="col-9">
         <h6>{{$comic->type}}</h6>
-        <p>{{!! $comic->description}}</p>
+        <p>{{ $comic->description}}</p>
         <div> <strong>Prezzo</strong>{{$comic->price}}</div>
 
     </div>
