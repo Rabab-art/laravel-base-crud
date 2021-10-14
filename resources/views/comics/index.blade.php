@@ -8,39 +8,24 @@
 
 <section class="">
     <h1 class="mt-4 mp-5 text-center">DC Comics Book </h1>
-    <div class="cards-section" style="width: 18rem;">
-
-        <div class="card-body">
-            {{-- <ul>
-                <li scope="row">Title</li>
-                <li scope="row">Description</li>
-                <li scope="row">Price</li>
-                <li scope="row">Series</li>
-                <li scope="row">Type</li>
-            </ul> --}}
-            <div>
+    <section class="row">
+        
+            <div class="card" style="width: 18rem;">
                 @forelse($comics as $comic)
                 @if($comic->thumb)
                 <img src="{{$comic->thumb}}" alt="" class="img-fluid me-2">
                 @endif
-
-                <ul>
-                    <li scope="row">{{$comic->title}}</li>
-                    {{-- <li scope="row">{{$comic->description}}</li> da inserire della show --}}
-                    {{-- <li scope="row">{{$comic->price}}</li>da inserire nello show --}}
-                    <li scope="row">{{$comic->series}}</li>
-                    {{-- <li scope="row">{{$comic->type}}</li> da inserire nello show --}}
-                    <li><a class="btn btn-primary" href="{{route ('comics.show' ,$comics->id)}}">MORE</a></li>   
-                </ul>
+                <div class="card-body">
+                    <h5 class="card-title">{{$comic->title}}</h5>
+                    <p class="card-text">{{$comic->series}}</p>
+                    <a href="{{route ('comics.show', $comic->id)}}" class="btn btn-primary">MORE</a>
+                </div>
                 @empty
-              
                 @endforelse
             </div>
-           
-        </div>
-    </div>
-   
+       
+    </section>
     <h2 class=" mp-5 text-center">Non è diponibile...</h2>
-   {{-- {{$comics ->links()}} --}}
+    {{-- {{$comics ->links()}} --}}
     @endsection
 </section>
