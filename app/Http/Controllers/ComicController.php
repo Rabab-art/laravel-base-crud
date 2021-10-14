@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
@@ -11,10 +12,13 @@ class ComicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $comics=Comic::orderBy('title')->paginate(5);
-    return view ('comics.index',compact('comics'));
+        $search =$request ->query('search');
+       
+        $comics = Comic::where('title', 'LIKE',"%$search%")->get();
+        // $comics = Comic::orderBy('title')->paginate(5);
+        return view('comics.index', compact('comics', 'search'));
     }
 
     /**
@@ -24,9 +28,6 @@ class ComicController extends Controller
      */
     public function create($id)
     {
-        
-       
-
     }
 
     /**
@@ -48,8 +49,8 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-        $comic =Comic::findOrFail($id);
-       
+        $comic = Comic::findOrFail($id);
+
 
         return view('comics.show', compact('comic'));
     }
