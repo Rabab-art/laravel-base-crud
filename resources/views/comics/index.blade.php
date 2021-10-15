@@ -14,10 +14,12 @@
                 <input type="text" class="form-control" placeholder="Cerca fumetto..." name="search" />
                 <button class="btn btn-secondary" type="submit">Cerca</button>
             </div>
+            <a href="{{route ('comics.create')}}" class="btn btn-primary">Inserisci un nuovo fumetto</a>
         </form>
-    </div>
-    <div class="card m-3 " style="width: 18rem;">
-        @forelse($comics as $comic)
+    </div> 
+    @forelse($comics as $comic)
+    <div class="card m-3 d-flex " style="width: 18rem;">
+       
         @if($comic->thumb)
         <img src="{{$comic->thumb}}" alt="" class="img-fluid me-2">
         @endif
@@ -35,7 +37,7 @@
     </h2>
     @endforelse
 
-    <a href="{{route('comics.create')}}">Crea nuovo film</a>
+   
 
     {{-- {{$comics ->links()}} --}}
     @endsection

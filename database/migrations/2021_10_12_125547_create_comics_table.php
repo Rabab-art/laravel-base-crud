@@ -22,6 +22,7 @@ class CreateComicsTable extends Migration
             $table->string('type', 50);
             $table->string('thumb')->nullable();
             
+            
             $table->timestamps();
         });
     }
