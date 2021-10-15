@@ -35,7 +35,7 @@
     </h2>
     @endforelse
 
-
+    <a href="{{route('comics.create')}}">Crea nuovo film</a>
 
     {{-- {{$comics ->links()}} --}}
     @endsection

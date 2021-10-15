@@ -14,9 +14,9 @@ class ComicController extends Controller
      */
     public function index(Request $request)
     {
-        $search =$request ->query('search');
-       
-        $comics = Comic::where('title', 'LIKE',"%$search%")->get();
+        $search = $request->query('search');
+
+        $comics = Comic::where('title', 'LIKE', "%$search%")->get();
         // $comics = Comic::orderBy('title')->paginate(5);
         return view('comics.index', compact('comics', 'search'));
     }
@@ -39,7 +39,14 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $comic = new Comic();
+        $comic->fill($data);
+        $slug = Str::slug($comic->title, '-');
+        $comic->save();
+        return redirect()->route('comics.show', $comic->id);
+        
     }
 
     /**
