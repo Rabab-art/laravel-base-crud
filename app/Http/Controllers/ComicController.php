@@ -28,6 +28,7 @@ class ComicController extends Controller
      */
     public function create($id)
     {
+        return view('comics.create');
     }
 
     /**
